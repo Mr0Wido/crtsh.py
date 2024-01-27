@@ -1,7 +1,7 @@
 # crtsh.py
 crtsh.py is a Python script for discovering subdomains from https://crt.sh
 
-# Installatıon
+### Installation
 
 ```
 git clone https://github.com/Mr0Wido/crtsh.py.git
@@ -9,13 +9,13 @@ cd crtsh.py
 python3 crtsh.py
 ```
 
-# Usage
+### Usage
 
 ```
 python3 crtsh.py -d example.com
 ```
 
-# Requirments
+### Requirments
 
 ```
 argparse
