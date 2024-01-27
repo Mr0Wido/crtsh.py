@@ -22,16 +22,29 @@ class CrtShScraper:
                         crt_subdomains.append(crtsh)
             return crt_subdomains
 
+def save_to_file(subdomains, output_file):
+    with open(output_file, 'w') as file:
+        for subdomain in subdomains:
+            file.write(subdomain + '\n')
+            
 def main():
     parser = argparse.ArgumentParser(description="Use the domain name to pull crt.sh data.")
     parser.add_argument("-d", "--domain", required=True, help="Domain name to search in crt.sh.")
+    parser.add_argument("-o", "--output", help="Output file to save subdomains.")
+    
     args = parser.parse_args()
+
+    if not args.domain:
+        parser.error("At least one of -d/--domain must be provided.")
 
     crtsh_scraper = CrtShScraper(args.domain)
     subdomains = crtsh_scraper.scrape_crtsh()
 
-    for subdomain in subdomains:
-        print(subdomain)
+    if args.output:
+        save_to_file(subdomains, args.output)
+    else:
+        for subdomain in subdomains:
+            print(subdomain)
 
 if __name__ == "__main__":
     main()
