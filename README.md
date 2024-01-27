@@ -1,2 +1,2 @@
 # crtsh.py
-Python script to discover subdomains from https://crt.sh
+crtsh.py is a Python script for discovering subdomains from https://crt.sh
